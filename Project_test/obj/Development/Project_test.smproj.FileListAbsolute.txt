@@ -1,0 +1,7 @@
+C:\Users\ShafeeqReheman\source\repos\Aas_releasepipelines\Project_test\Project_test\bin\Model.asdatabase
+C:\Users\ShafeeqReheman\source\repos\Aas_releasepipelines\Project_test\Project_test\bin\Model.deploymenttargets
+C:\Users\ShafeeqReheman\source\repos\Aas_releasepipelines\Project_test\Project_test\bin\Model.deploymentoptions
+C:\Users\ShafeeqReheman\source\repos\Aas_releasepipelines\Project_test\Project_test\obj\Development\Project_test.smproj.CoreCompileInputs.cache
+C:\Users\ShafeeqReheman\source\repos\Aas_releasepipelines\Project_test\Project_test\obj\Development\Model.asdatabase
+C:\Users\ShafeeqReheman\source\repos\Aas_releasepipelines\Project_test\Project_test\obj\Development\Model.deploymentoptions
+C:\Users\ShafeeqReheman\source\repos\Aas_releasepipelines\Project_test\Project_test\obj\Development\Model.deploymenttargets

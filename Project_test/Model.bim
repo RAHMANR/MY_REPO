@@ -1,0 +1,142 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-IN",
+    "dataSources": [
+      {
+        "name": "SqlAzure serversalesbi.database.windows.net prod_salesbi",
+        "connectionString": "Data Source=serversalesbi.database.windows.net;Initial Catalog=prod_salesbi;User ID=Admin1;Persist Security Info=false;Encrypt=true;TrustServerCertificate=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "provider": "System.Data.SqlClient",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlAzure"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "dept",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "sourceColumn": "name",
+            "sourceProviderType": "varchar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dept",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[dept].* FROM [dbo].[dept] ",
+              "dataSource": "SqlAzure serversalesbi.database.windows.net prod_salesbi"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[dept].* FROM [dbo].[dept] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dept"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "emp",
+        "columns": [
+          {
+            "name": "empid",
+            "dataType": "int64",
+            "sourceColumn": "empid",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "empname",
+            "dataType": "string",
+            "sourceColumn": "empname",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "deptid",
+            "dataType": "int64",
+            "sourceColumn": "deptid",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "sal",
+            "dataType": "decimal",
+            "sourceColumn": "sal",
+            "formatString": "\"₹\" #,0.00;#,0.00 -\"₹\";\"₹\" #,0.00",
+            "sourceProviderType": "money",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"16393\" DisplayName=\"₹ English (India)\" Symbol=\"₹\" PositivePattern=\"2\" NegativePattern=\"12\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "emp",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[emp].* FROM [dbo].[emp] ",
+              "dataSource": "SqlAzure serversalesbi.database.windows.net prod_salesbi"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[emp].* FROM [dbo].[emp] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "emp"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "85e305e9-6c03-4787-99c6-6e1ff39f1c76",
+        "fromTable": "emp",
+        "fromColumn": "deptid",
+        "toTable": "dept",
+        "toColumn": "id"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
