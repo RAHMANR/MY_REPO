@@ -120,6 +120,48 @@
             "value": "dbo"
           }
         ]
+      },
+      {
+        "name": "managers",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "sourceColumn": "name",
+            "sourceProviderType": "varchar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "managers",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[managers].* FROM [dbo].[managers] ",
+              "dataSource": "SqlAzure serversalesbi.database.windows.net prod_salesbi"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[managers].* FROM [dbo].[managers] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "managers"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
       }
     ],
     "relationships": [
